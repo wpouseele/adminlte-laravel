@@ -31,27 +31,29 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header">General</li>
             <!-- Optionally, you can add icons to the links -->
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
                 <a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a>
             </li>
+            <li class="header">View</li>
+            <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
+                <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>Companies</span></a>
+            </li>
+            <li class="header">Create</li>
             <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Create a new project</span></a>
+                <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Project</span></a>
             </li>
             <li {{ (Request::is('product.create') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('product.create') }}"><i class="fa fa-link"></i> <span>Create a new product</span></a>
-            </li>
-            <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>View all companies</span></a>
+                <a href="{{ URL::route('product.create') }}"><i class="fa fa-link"></i> <span>Product</span></a>
             </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Create vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::route('vcontainer.create') }}">Create a vContainer</a></li>
-                    <li><a href="{{ URL::route('vdc.create') }}">Create a vDc</a></li>
-                    <li><a href="{{ URL::route('storagepool.create') }}">Create a Storagepool</a></li>
-                    <li><a href="{{ URL::route('vapp.create') }}">Create a vApp</a></li>
+                    <li><a href="{{ URL::route('vcontainer.create') }}">vContainer</a></li>
+                    <li><a href="{{ URL::route('vdc.create') }}">vDc</a></li>
+                    <li><a href="{{ URL::route('storagepool.create') }}">Storagepool</a></li>
+                    <li><a href="{{ URL::route('vapp.create') }}">vApp</a></li>
                 </ul>
             </li>
             <li class="treeview">

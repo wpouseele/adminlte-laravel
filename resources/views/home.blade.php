@@ -4,6 +4,7 @@
 	Home
 @endsection
 
+@section('contentheader_title','Home')
 
 @section('main-content')
 	<div class="container spark-screen">
