@@ -40,6 +40,9 @@
             <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
                 <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>Companies</span></a>
             </li>
+            <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
+                <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
+            </li>
             <li class="header">Create</li>
             <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
                 <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Project</span></a>
