@@ -15,11 +15,7 @@
 
 					<div class="panel-body">
 						This app is used to manage all aspects of a vCloudOne project.<br><br>
-						<ul>
-							<li><a href="/project/create">Create a new project</a></li>
-							<li><a href="/company/">View all companies</a></li>
-							<li><a href="/product/">View all products</a></li>
-						</ul>
+						Use the left navigation to view/create/update a project.
 					</div>
 				</div>
 			</div>
