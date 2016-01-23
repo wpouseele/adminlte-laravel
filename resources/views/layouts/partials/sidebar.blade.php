@@ -33,13 +33,33 @@
         <ul class="sidebar-menu">
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>Another Link</span></a></li>
+            <li {{ (Request::is('/') ? 'class="active"' : '') }}>
+                <a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a>
+            </li>
+            <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
+                <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Create a new project</span></a>
+            </li>
+            <li {{ (Request::is('product.create') ? 'class="active"' : '') }}>
+                <a href="{{ URL::route('product.create') }}"><i class="fa fa-link"></i> <span>Create a new product</span></a>
+            </li>
+            <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
+                <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>View all companies</span></a>
+            </li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>Create vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="{{ URL::route('vcontainer.create') }}">Create a vContainer</a></li>
+                    <li><a href="{{ URL::route('vdc.create') }}">Create a vDc</a></li>
+                    <li><a href="{{ URL::route('storagepool.create') }}">Create a Storagepool</a></li>
+                    <li><a href="{{ URL::route('vapp.create') }}">Create a vApp</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ URL::route('reports.office365.expire') }}">Office 365 expirations</a></li>
+                    <li><a href="{{ URL::route('reports.company.cost') }}">Company cost</a></li>
+                    <li><a href="{{ URL::route('reports.changes') }}">Changes</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->
