@@ -14,11 +14,3 @@
       Both of these plugins are recommended to enhance the
       user experience. Slimscroll is required when using the
       fixed layout. -->
-
-<!-- render datatables -->
-<!-- page script -->
-<script>
-    $(function () {
-        $("#example1").DataTable();
-    });
-</script>
