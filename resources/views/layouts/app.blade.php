@@ -51,8 +51,8 @@ desired effect
     @include('layouts.partials.footer')
 
 </div><!-- ./wrapper -->
-
-@include('layouts.partials.scripts')
-
+@section('scripts')
+    @include('layouts.partials.scripts')
+@show
 </body>
 </html>
