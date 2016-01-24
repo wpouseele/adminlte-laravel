@@ -43,7 +43,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#home" class="smothscroll">Home</a></li>
                 <li><a href="#desc" class="smothscroll">Description</a></li>
-                <li><a href="#showcase" class="smothScroll">Showcase</a></li>
+                <!-- <li><a href="#showcase" class="smothScroll">Showcase</a></li> -->
                 <li><a href="#contact" class="smothScroll">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -61,8 +61,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <div class="row centered">
             <div class="col-lg-12">
                 <h1>ConXioN <b><a href="https://github.com/wpouseele/vcloudone-mgmt">vcloudone-mgmt</a></b></h1>
-                <h3>A <a href="https://laravel.com/">Laravel</a> 5 package that switchs default Laravel
-                    scaffolding/boilerplate to <a href="https://almsaeedstudio.com/preview">AdminLTE</a> template with
+                <h3>A <a href="https://laravel.com/">Laravel</a> 5 application to manage all <a href="http://www.vcloudone.be">vCloudOne</a> related tasks.<br>
+                Based on the <a href="https://almsaeedstudio.com/preview">AdminLTE</a> template with
                     <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 and <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
                 <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">Get Started!</a></h3>
             </div>
@@ -74,12 +74,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="col-lg-8">
                 <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
             </div>
+            <!--
             <div class="col-lg-2">
                 <br>
                 <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow2.png') }}">
                 <h5>Awesome packaged...</h5>
                 <p>... by <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a> at <a href="http://acacha.org">acacha.org</a> ready to use with Laravel!</p>
             </div>
+            -->
         </div>
     </div> <!--/ .container -->
 </div><!--/ #headerwrap -->
@@ -96,7 +98,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="col-lg-4">
                 <img src="{{ asset('/img/intro01.png') }}" alt="">
                 <h3>Community</h3>
-                <p>See <a href="https://github.com/acacha/adminlte-laravel">Github project</a>, post <a href="https://github.com/acacha/adminlte-laravel/issues">issues</a> and <a href="https://github.com/acacha/adminlte-laravel/pulls">Pull requests</a></p>
+                <p>See <a href="https://github.com/wpouseele/vcloudone-mgmt">Github project</a>, post <a href="https://github.com/wpouseele/vcloudone-mgmt/issues">issues</a> and <a href="https://github.com/wpouseele/vcloudone-mgmt/pulls">Pull requests</a></p>
             </div>
             <div class="col-lg-4">
                 <img src="{{ asset('/img/intro02.png') }}" alt="">
@@ -191,7 +193,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     </div><!--/ .container -->
 </div><!--/ #features -->
 
-
+<!--
 <section id="showcase" name="showcase"></section>
 <div id="showcase">
     <div class="container">
@@ -200,13 +202,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <br>
             <div class="col-lg-8 col-lg-offset-2">
                 <div id="carousel-example-generic" class="carousel slide">
+                    -->
                     <!-- Indicators -->
+                    <!--
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                     </ol>
-
+                    -->
                     <!-- Wrapper for slides -->
+                    <!--
                     <div class="carousel-inner">
                         <div class="item active">
                             <img src="{{ asset('/img/item-01.png') }}" alt="">
@@ -221,8 +226,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <br>
         <br>
         <br>
-    </div><!-- /container -->
-</div>
+    </div>--> <!-- /container -->
+<!-- </div> -->
 
 
 <section id="contact" name="contact"></section>
@@ -263,8 +268,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <div id="c">
     <div class="container">
         <p>
-            <a href="https://github.com/wpouseele/vcloudone-mgmt"></a><b>vcloudone-mgmt</b></a>. Frontend for the vcloudone-mgmt application.<br/>
-            <strong>Copyright &copy; 2015 <a href="http://conxion.be">ConXioN</a>.</strong> Created by <a href="http://github.com/wpouseele">Wim Pouseele</a>. See code at <a href="https://github.com/wpouseele/adminlte-laravel">Github</a>
+            <a href="https://github.com/wpouseele/vcloudone-mgmt"></a><b>vcloudone-mgmt</b></a>. vCloudOne Management application.<br/>
+            <strong>Copyright &copy; 2015 <a href="http://conxion.be">ConXioN</a>.</strong> Created by <a href="http://github.com/wpouseele">Wim Pouseele</a>. See code at <a href="https://github.com/wpouseele/vcloudone-mgmt">Github</a>
             <br/>
             AdminLTE created by Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
             <br/>
