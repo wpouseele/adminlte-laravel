@@ -56,11 +56,24 @@ class AdminLTE
     {
         return [
             ADMINLTETEMPLATE_PATH.'/resources/views/auth' => base_path('resources/views/auth'),
-            //ADMINLTETEMPLATE_PATH . '/resources/views/emails' => base_path('resources/views/emails'), TODO
+            ADMINLTETEMPLATE_PATH.'/resources/views/auth/emails' => base_path('resources/views/auth/emails'),
             ADMINLTETEMPLATE_PATH.'/resources/views/errors' => base_path('resources/views/errors'),
             ADMINLTETEMPLATE_PATH.'/resources/views/layouts' => base_path('resources/views/layouts'),
             ADMINLTETEMPLATE_PATH.'/resources/views/home.blade.php' => base_path('resources/views/home.blade.php'),
             ADMINLTETEMPLATE_PATH.'/resources/views/welcome.blade.php' => base_path('resources/views/welcome.blade.php'),
+        ];
+    }
+
+    /**
+     * Tests copy path.
+     *
+     * @return array
+     */
+    public function tests()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/tests' => base_path('tests'),
+            ADMINLTETEMPLATE_PATH.'/phpunit.xml' => base_path('phpunit.xml'),
         ];
     }
 

@@ -9,6 +9,8 @@ If you are looking for the Laravel 4 version, use 0.1.5 version/tag and see [OLD
 
 [![Total Downloads](https://poser.pugx.org/acacha/admin-lte-template-laravel/downloads.png)](https://packagist.org/packages/acacha/admin-lte-template-laravel)
 [![Latest Stable Version](https://poser.pugx.org/acacha/admin-lte-template-laravel/v/stable.png)](https://packagist.org/packages/acacha/admin-lte-template-laravel)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/badges/build.png?b=master)](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/build-status/master)
 
 #Requirements
 
@@ -156,3 +158,7 @@ https://packagist.org/packages/acacha/admin-lte-template-laravel
 ## More info
 
 http://acacha.org/mediawiki/AdminLTE#adminlte-laravel
+
+## See also
+
+https://github.com/acacha/adminlte-laravel-installer
