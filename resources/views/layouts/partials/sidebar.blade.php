@@ -63,15 +63,16 @@
                     <li><a href="{{ URL::route('vapp.create') }}">vApp</a></li>
                 </ul>
             </li>
+            <li class="header">Reports</li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>Office365</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ URL::route('reports.office365.stats') }}">Office 365 statistics</li>
-                    <li><a href="{{ URL::route('reports.office365.expire') }}">Office 365 expirations</a></li>
-                    <li><a href="{{ URL::route('reports.company.cost') }}">Company cost</a></li>
-                    <li><a href="{{ URL::route('reports.changes') }}">Changes</a></li>
+                    <li><a href="{{ URL::route('reports.office365.stats') }}">Statistics</li>
+                    <li><a href="{{ URL::route('reports.office365.expire') }}">Expirations</a></li>
                 </ul>
             </li>
+            <li><a href="{{ URL::route('reports.company.cost') }}"><i class="fa fa-link"></i> <span>Company cost</span></a></li>
+            <li><a href="{{ URL::route('reports.changes') }}"><i class="fa fa-link"></i> <span>Changes</a></span></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
