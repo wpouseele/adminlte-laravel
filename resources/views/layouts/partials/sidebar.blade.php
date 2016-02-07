@@ -66,6 +66,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Reports</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+                    <li><a href="{{ URL::route('reports.office365.stats') }}">Office 365 statistics</li>
                     <li><a href="{{ URL::route('reports.office365.expire') }}">Office 365 expirations</a></li>
                     <li><a href="{{ URL::route('reports.company.cost') }}">Company cost</a></li>
                     <li><a href="{{ URL::route('reports.changes') }}">Changes</a></li>
