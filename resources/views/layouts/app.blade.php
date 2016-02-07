@@ -4,10 +4,6 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
-<<<<<<< HEAD
-=======
-
->>>>>>> acacha/master
 @section('htmlheader')
     @include('layouts.partials.htmlheader')
 @show
@@ -56,16 +52,8 @@ desired effect
     @include('layouts.partials.footer')
 
 </div><!-- ./wrapper -->
-<<<<<<< HEAD
 @section('scripts')
     @include('layouts.partials.scripts')
 @show
-=======
-
-@section('scripts')
-    @include('layouts.partials.scripts')
-@show
-
->>>>>>> acacha/master
 </body>
 </html>
