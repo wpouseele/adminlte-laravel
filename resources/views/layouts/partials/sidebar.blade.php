@@ -37,42 +37,54 @@
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
                 <a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a>
             </li>
-            <li class="header">View</li>
-            <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>Companies</span></a>
-            </li>
-            <li {{ (Request::is('*office365') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('office365.index') }}"><i class="fa fa-link"></i> <span>Office 365 projects</span></a>
-            </li>
-            <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
-            </li>
-            <li class="header">Create</li>
-            <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Project</span></a>
-            </li>
-            <li {{ (Request::is('product.create') ? 'class="active"' : '') }}>
-                <a href="{{ URL::route('product.create') }}"><i class="fa fa-link"></i> <span>Product</span></a>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ URL::route('vcontainer.create') }}">vContainer</a></li>
-                    <li><a href="{{ URL::route('vdc.create') }}">vDc</a></li>
-                    <li><a href="{{ URL::route('storagepool.create') }}">Storagepool</a></li>
-                    <li><a href="{{ URL::route('vapp.create') }}">vApp</a></li>
-                </ul>
-            </li>
-            <li class="header">Reports</li>
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Office365</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="{{ URL::route('reports.office365.stats') }}">Statistics</li>
-                    <li><a href="{{ URL::route('reports.office365.expire') }}">Expirations</a></li>
-                </ul>
-            </li>
-            <li><a href="{{ URL::route('reports.company.cost') }}"><i class="fa fa-link"></i> <span>Company cost</span></a></li>
-            <li><a href="{{ URL::route('reports.changes') }}"><i class="fa fa-link"></i> <span>Changes</a></span></li>
+            @role('reader')
+                <li class="header">View</li>
+                <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
+                    <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>Companies</span></a>
+                </li>
+                <li {{ (Request::is('*office365') ? 'class="active"' : '') }}>
+                    <a href="{{ URL::route('office365.index') }}"><i class="fa fa-link"></i> <span>Office 365 projects</span></a>
+                </li>
+                <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
+                    <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
+                </li>
+            @endrole
+            @role('writer')
+                <li class="header">Create</li>
+                <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
+                    <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Project</span></a>
+                </li>
+                <li {{ (Request::is('product.create') ? 'class="active"' : '') }}>
+                    <a href="{{ URL::route('product.create') }}"><i class="fa fa-link"></i> <span>Product</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-link'></i> <span>vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ URL::route('vcontainer.create') }}">vContainer</a></li>
+                        <li><a href="{{ URL::route('vdc.create') }}">vDc</a></li>
+                        <li><a href="{{ URL::route('storagepool.create') }}">Storagepool</a></li>
+                        <li><a href="{{ URL::route('vapp.create') }}">vApp</a></li>
+                    </ul>
+                </li>
+            @endrole
+            @role('report')
+                <li class="header">Reports</li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-link'></i> <span>Office365</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ URL::route('reports.office365.stats') }}">Statistics</li>
+                        <li><a href="{{ URL::route('reports.office365.expire') }}">Expirations</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ URL::route('reports.company.cost') }}"><i class="fa fa-link"></i> <span>Company cost</span></a></li>
+                <li><a href="{{ URL::route('reports.changes') }}"><i class="fa fa-link"></i> <span>Changes</a></span></li>
+            @endrole
+            @role('admin')
+                <li class="header">Admin</li>
+                <li {{ (Request::is('admin.home') ? 'class="active"' : '') }}>
+                    <a href="{{ URL::route('admin.home') }}"><i class="fa fa-link"></i> <span>Home</span></a>
+                </li>
+            @endrole
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
