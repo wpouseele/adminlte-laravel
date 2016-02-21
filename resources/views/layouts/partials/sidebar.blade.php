@@ -39,17 +39,17 @@
             </li>
             @if(auth()->check() && auth()->user()->hasAnyRole('admin', 'reader'))
                 <li class="header">View</li>
-                @can('view companies')
+                @can('view-companies')
                     <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('company.index') }}"><i class="fa fa-link"></i> <span>Companies</span></a>
                     </li>
                 @endcan
-                @can('view office365 projects')
+                @can('view-office365-projects')
                     <li {{ (Request::is('*office365') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('office365.index') }}"><i class="fa fa-link"></i> <span>Office 365 projects</span></a>
                     </li>
                 @endcan
-                @can('view products')
+                @can('view-products')
                     <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
                     </li>
@@ -57,17 +57,17 @@
             @endif
             @if(auth()->check() && auth()->user()->hasAnyRole('admin', 'writer'))
                 <li class="header">Create</li>
-                @can('edit project')
+                @can('edit-project')
                     <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('project.create') }}"><i class="fa fa-link"></i> <span>Project</span></a>
                     </li>
                 @endcan
-                @can('edit product')
+                @can('edit-product')
                     <li {{ (Request::is('product.create') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('product.create') }}"><i class="fa fa-link"></i> <span>Product</span></a>
                     </li>
                 @endcan
-                @can('edit vcontainer infrastructure')
+                @can('edit-vcontainer-infrastructure')
                     <li class="treeview">
                         <a href="#"><i class='fa fa-link'></i> <span>vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
@@ -81,7 +81,7 @@
             @endif
             @if(auth()->check() && auth()->user()->hasAnyRole('admin', 'report'))
                 <li class="header">Reports</li>
-                @can('view office365 reports')
+                @can('view-office365-reports')
                     <li class="treeview">
                         <a href="#"><i class='fa fa-link'></i> <span>Office365</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
@@ -90,10 +90,10 @@
                         </ul>
                     </li>
                 @endcan
-                @can('view company cost')
+                @can('view-company-cost')
                     <li><a href="{{ URL::route('reports.company.cost') }}"><i class="fa fa-link"></i> <span>Company cost</span></a></li>
                 @endcan
-                @can('view changes')
+                @can('view-changes')
                     <li><a href="{{ URL::route('reports.changes') }}"><i class="fa fa-link"></i> <span>Changes</a></span></li>
                 @endcan
             @endif
