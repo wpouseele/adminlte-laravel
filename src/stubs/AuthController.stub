@@ -70,14 +70,13 @@ class AuthController extends Controller
         ]);
     }
 
-        /**
+    /**
      * Redirect the user to the Azure authentication page.
      *
      * @return Response
      */
     public function redirectToProvider()
     {
-        //return Socialite::driver('github')->redirect();
         return Socialite::with('azure')->redirect();
     }
 
@@ -89,7 +88,6 @@ class AuthController extends Controller
     public function handleProviderCallback()
     {
         try {
-            //$user = Socialite::driver('github')->user();
             $user = Socialite::with('azure')->user();
         } catch (Exception $e) {
             return Redirect::to('auth/azure');
