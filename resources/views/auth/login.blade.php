@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+
 
 @section('htmlheader_title')
     Log in
@@ -48,12 +48,10 @@
         </div>
     </form>
 
-    <!-- Hide social login
     <div class="social-auth-links text-center">
         <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-        <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-    </div>--><!-- /.social-auth-links -->
+        <a href="/auth/azure" class="btn btn-block btn-social btn-microsoft btn-flat"><i class="fa fa-microsoft"></i> Sign in using Azure AD</a>
+    </div><!-- /.social-auth-links -->
 
     <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
     <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
