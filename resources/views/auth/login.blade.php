@@ -24,6 +24,11 @@
 
     <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
+    <div class="social-auth-links text-center">
+        <a href="/auth/azure" class="btn btn-block btn-social btn-microsoft btn-flat"><i class="fa fa-windows"></i> Sign in using Azure AD
+        </a>
+        <p>- OR -</p>
+    </div>
     <form action="{{ url('/login') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group has-feedback">
@@ -48,10 +53,6 @@
         </div>
     </form>
 
-    <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="/auth/azure" class="btn btn-block btn-social btn-microsoft btn-flat"><i class="fa fa-windows"></i> Sign in using Azure AD</a>
-    </div><!-- /.social-auth-links -->
 
     <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
     <a href="{{ url('/register') }}" class="text-center">Register a new membership</a>
