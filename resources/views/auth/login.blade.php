@@ -1,4 +1,4 @@
-
+@extends('layouts.auth')
 
 @section('htmlheader_title')
     Log in
