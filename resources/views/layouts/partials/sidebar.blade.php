@@ -49,6 +49,21 @@
                         <a href="{{ URL::route('office365.index') }}"><i class="fa fa-link"></i> <span>Office 365 projects</span></a>
                     </li>
                 @endcan
+                @can('view-offsitebackup-projects')
+                    <li {{ (Request::is('*offsitebackup') ? 'class="active"' : '') }}>
+                        <a href="{{ URL::route('offsitebackup.index') }}"><i class="fa fa-link"></i> <span>Offsite backup projects</span></a>
+                    </li>
+                @endcan
+                @can('view-offsitestorage-projects')
+                    <li {{ (Request::is('*offsitestorage') ? 'class="active"' : '') }}>
+                        <a href="{{ URL::route('offsitestorage.index') }}"><i class="fa fa-link"></i> <span>Offsite storage projects</span></a>
+                    </li>
+                @endcan
+                @can('view-vcontainer-projects')
+                    <li {{ (Request::is('*vcontainer') ? 'class="active"' : '') }}>
+                        <a href="{{ URL::route('vcontainer.index') }}"><i class="fa fa-link"></i> <span>vContainer projects</span></a>
+                    </li>
+                @endcan
                 @can('view-products')
                     <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
