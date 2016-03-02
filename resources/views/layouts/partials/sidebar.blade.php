@@ -37,7 +37,7 @@
             <li {{ (Request::is('/') ? 'class="active"' : '') }}>
                 <a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Home</span></a>
             </li>
-            @if(auth()->check() && auth()->user()->hasAnyRole('admin', 'reader'))
+            @if(auth()->check())
                 <li class="header">View</li>
                 @can('view-companies')
                     <li {{ (Request::is('*company') ? 'class="active"' : '') }}>
@@ -69,8 +69,6 @@
                         <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
                     </li>
                 @endcan
-            @endif
-            @if(auth()->check() && auth()->user()->hasAnyRole('admin', 'writer'))
                 <li class="header">Create</li>
                 @can('edit-project')
                     <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
@@ -93,8 +91,6 @@
                         </ul>
                     </li>
                 @endcan
-            @endif
-            @if(auth()->check() && auth()->user()->hasAnyRole('admin', 'report'))
                 <li class="header">Reports</li>
                 @can('view-office365-reports')
                     <li class="treeview">
