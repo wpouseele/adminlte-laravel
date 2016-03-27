@@ -61,7 +61,7 @@
                 @endcan
                 @can('view-vcontainer-projects')
                     <li {{ (Request::is('*vcontainer') ? 'class="active"' : '') }}>
-                        <a href="{{ URL::route('vcontainer.index') }}"><i class="fa fa-link"></i> <span>vContainer projects</span></a>
+                        <a href="{{ URL::route('vcontainerproject.index') }}"><i class="fa fa-link"></i> <span>vContainer projects</span></a>
                     </li>
                 @endcan
                 @can('view-products')
