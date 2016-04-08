@@ -38,6 +38,12 @@ To start using you Laravel with AdminLTE project. Llum will configure database (
 
 More info about llum commands in Github [Acacha/llum](https://github.com/acacha/llum).
 
+IMPORTANT NOTE: on MAC OS you will have to replace BSD sed with GNU sed for example using brew:
+
+```bash
+brew install gnu-sed --with-default-names
+```
+
 #Requirements
 
 This packages use (no need to install):
@@ -47,6 +53,11 @@ This packages use (no need to install):
 * [AdminLTE](https://github.com/almasaeed2010/AdminLTE). You can see and AdminLTE theme preview at: http://almsaeedstudio.com/preview/
 * [Pratt](http://blacktie.co/demo/pratt/). Pratt Landing Page
 * [Acacha/llum](https://github.com/acacha/llum). Easy Laravel packages installation (and other tasks). Used to modify config/app.php file without using stubs (so you changes to this file would be respected)
+* Acacha llum requires GNU sed. on MAC OS install GNU sed with:
+
+```bash
+brew install gnu-sed --with-default-names
+```
 
 This package assumes that you have in path your composer bin folder:
  
@@ -237,6 +248,37 @@ Remove line @include('auth.partials.social_login') in files resources/views/auth
 Social login links in login/register pages returns 404 not found
 
 TODO: See package https://github.com/acacha/acacha-socialite
+
+## Troubleshooting
+
+### GNU sed on MAC OS
+
+Acacha llum need GNU sed to work so replace BSD sed with GNU sed using:
+
+```bash
+brew install gnu-sed --with-default-names
+```
+
+Check you version of sed with:
+
+```bash
+man sed
+```
+
+sed GNU version path is:
+
+```bash
+$ which sed
+/usr/local/bin/sed
+```
+
+Instead of default path of BSD sed (installed by default on MAC OS):
+
+```bash
+/usr/bin/sed
+```
+
+More info at https://github.com/acacha/adminlte-laravel/issues/58
 
 ## See also
 
