@@ -21,8 +21,8 @@ class AcachaAdminLTELaravelTest extends TestCase
     public function testLandingPage()
     {
         $this->visit('/')
-             ->see('Acacha')
-             ->see('adminlte-laravel')
+             ->see('ConXioN')
+             ->see('vcloudone-mgmt')
              ->see('Pratt');
     }
 
@@ -116,7 +116,7 @@ class AcachaAdminLTELaravelTest extends TestCase
     public function testHomePageForUnauthenticatedUsers()
     {
         $this->visit('/home')
-            ->seePageIs('/login');
+            ->seePageIs('/');
     }
 
     /**
