@@ -19,6 +19,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
+                @if(1 ==2) <!-- hide section -->
                 <li class="dropdown messages-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -108,6 +109,8 @@
                         </li>
                     </ul>
                 </li>
+                @endif
+
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
@@ -156,9 +159,11 @@
                 @endif
 
                 <!-- Control Sidebar Toggle Button -->
+                <!--
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
+                -->
             </ul>
         </div>
     </nav>
