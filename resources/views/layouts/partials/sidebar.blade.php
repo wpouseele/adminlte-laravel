@@ -64,6 +64,11 @@
                         <a href="{{ URL::route('vcontainerproject.index') }}"><i class="fa fa-link"></i> <span>vContainer projects</span></a>
                     </li>
                 @endcan
+                @can('view-certificate-projects')
+                    <li {{ (Request::is('*certificate') ? 'class="active"' : '') }}>
+                        <a href="{{ URL::route('certificate.index') }}"><i class="fa fa-link"></i> <span>Certificate projects</span></a>
+                    </li>
+                @endcan
                 @can('view-products')
                     <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
@@ -100,6 +105,9 @@
                             <li><a href="{{ URL::route('reports.office365.expire') }}">Expirations</a></li>
                         </ul>
                     </li>
+                @endcan
+                @can('view-certificate-reports')
+                    <li><a href="{{ URL::route('reports.certificate.expire') }}"><i class="fa fa-link"></i> <span>Certificate expirations</span></a></li>
                 @endcan
                 @can('view-company-cost')
                     <li><a href="{{ URL::route('reports.company.cost') }}"><i class="fa fa-link"></i> <span>Company cost</span></a></li>
