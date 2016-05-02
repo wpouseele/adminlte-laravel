@@ -11,6 +11,7 @@ If you are looking for the Laravel 4 version, use 0.1.5 version/tag and see [OLD
 [![Latest Stable Version](https://poser.pugx.org/acacha/admin-lte-template-laravel/v/stable.png)](https://packagist.org/packages/acacha/admin-lte-template-laravel)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/badges/build.png?b=master)](https://scrutinizer-ci.com/g/acacha/adminlte-laravel/build-status/master)
+[![StyleCI](https://styleci.io/repos/35628567/shield)](https://styleci.io/repos/35628567)
 
 # Installation & use
 
@@ -183,15 +184,44 @@ Note: use the following for Laravel <5.1 versions:
 
 ##Laravel Routes
 
-This package add Laravel routes that you will not find them at routes.php file. The routes installed by package would be find at file:
+This package installs Laravel routes that you will not find them at routes.php file. The routes installed by package would be find at file:
 
  https://github.com/acacha/adminlte-laravel/blob/master/src/Http/routes.php
  
-File included by AdminLTETemplateServiceProvider:
+A file included by AdminLTETemplateServiceProvider:
 
  https://github.com/acacha/adminlte-laravel/blob/master/src/Providers/AdminLTETemplateServiceProvider.php
  
-See issue https://github.com/acacha/adminlte-laravel/issues/47 if you want to change default welcome/landing page route.
+You can override this routes by changing order of ServiceProviders in config/app.php file so if you put:
+
+```php
+App\Providers\RouteServiceProvider::class
+```
+
+After
+
+```php
+Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class
+```
+
+Your routes in routes.php file will override default adminlte-laravel routes.
+
+Also you can install manually the routes in routes.php file. Adminlte-laravel use same routes as Laravel make:auth command use, see:
+ 
+https://github.com/laravel/framework/blob/5.2/src/Illuminate/Auth/Console/stubs/make/routes.stub
+ 
+so you can add this lines to routes.php file:
+
+```php
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+```
+
+And disable AdminLTETemplateServiceProvider in config/app.php file ( take into account that Adminte-laravel Facades and 
+custom commands will not be available).
+
+See issue https://github.com/acacha/adminlte-laravel/issues/69 for more info
 
 ##First steps, database creation, migrations and login
 
