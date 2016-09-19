@@ -79,6 +79,11 @@
                         <a href="{{ URL::route('certificate.index') }}"><i class="fa fa-link"></i> <span>Certificate projects</span></a>
                     </li>
                 @endcan
+                @can('view-managedservice-projects')
+                    <li {{ (Request::is('*managedservice') ? 'class="active"' : '') }}>
+                        <a href="{{ URL::route('managedservice.index') }}"><i class="fa fa-link"></i> <span>Managed services projects</span></a>
+                    </li>
+                @endcan
                 @can('view-products')
                     <li {{ (Request::is('product.index') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
