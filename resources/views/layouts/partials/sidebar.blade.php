@@ -122,6 +122,15 @@
                 @can('view-certificate-reports')
                     <li><a href="{{ URL::route('reports.certificate.expire') }}"><i class="fa fa-link"></i> <span>Certificate expirations</span></a></li>
                 @endcan
+                @can('view-managedservice-reports')
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-link'></i> <span>Managed Services</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ URL::route('reports.managedservice.stats') }}">Statistics</li>
+                            <li><a href="{{ URL::route('reports.managedservice.activation') }}">Activation Checkup</a></li>
+                        </ul>
+                    </li>
+                @endcan
                 @can('view-company-cost')
                     <li><a href="{{ URL::route('reports.company.cost') }}"><i class="fa fa-link"></i> <span>Company cost</span></a></li>
                 @endcan
