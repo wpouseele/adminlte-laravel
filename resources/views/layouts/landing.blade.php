@@ -65,7 +65,6 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
                     <li><a href="{{ url('/auth/azure') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
-                    @include('auth.partials.azure_login')
                     <!--
                     <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
                     -->
