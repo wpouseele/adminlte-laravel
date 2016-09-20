@@ -117,11 +117,16 @@ class AuthController extends Controller
             return $authUser;
         }
 
-        return User::create([
+        $user = User::create([
             'name' => $user->name,
             'email' => $user->email,
             'azure_id' => $user->id,
             'avatar' => $user->avatar
         ]);
+
+        // Assign default role
+        $user->assignRole(config('vcloudone-mgmt.default_role'));
+
+        return $user;
     }
 }
