@@ -85,7 +85,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from Azure.
      *
      * @return Response
      */
@@ -99,7 +99,7 @@ class AuthController extends Controller
 
         $authUser = $this->findOrCreateUser($user);
 
-        Auth::login($authUser, true);
+        Auth::login($authUser);
 
         return Redirect::to('home');
     }
