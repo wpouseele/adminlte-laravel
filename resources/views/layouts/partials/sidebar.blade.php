@@ -132,7 +132,9 @@
                         <a href="#"><i class='fa fa-link'></i> <span>Managed Services</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="{{ URL::route('reports.managedservice.stats') }}">Statistics</li>
-                            <li><a href="{{ URL::route('reports.managedservice.activation') }}">Activation Checkup</a></li>
+                            <li><a href="{{ URL::route('reports.managedservice.servicereviewcheckup') }}">Service Review Checkup</a></li>
+                            <li><a href="{{ URL::route('reports.managedservice.monitoringcheckup') }}">Monitoring Checkup</a></li>
+                            <li><a href="{{ URL::route('reports.managedservice.technicalcheckup') }}">Technical Checkup</a></li>
                         </ul>
                     </li>
                 @endcan
