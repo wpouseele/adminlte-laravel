@@ -147,6 +147,9 @@
                 @can('view-recurring')
                     <li><a href="{{ URL::route('reports.recurring') }}"><i class="fa fa-link"></i> <span>Recurring</a></span></li>
                 @endcan
+                @can('view-contact-list')
+                    <li><a href="{{ URL::route('reports.contactlist') }}"><i class="fa fa-link"></i> <span>Contact List</a></span></li>
+                @endcan
             @endif
             @if(auth()->check() && auth()->user()->hasAnyRole('admin'))
                 <li class="header">Admin</li>
