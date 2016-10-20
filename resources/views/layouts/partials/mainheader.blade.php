@@ -112,7 +112,9 @@
                 @endif
 
                 @if (Auth::guest())
+                    <!-- Always hide register link
                     <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
+                    -->
                     <li><a href="{{ url('/auth/azure') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
                 @else
                     <!-- User Account Menu -->
