@@ -76,7 +76,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <h3>A <a href="https://laravel.com/">Laravel</a> 5 application to manage all <a href="http://www.vcloudone.be">vCloudOne</a> related tasks.<br>
                     Based on the <a href="https://almsaeedstudio.com/preview">AdminLTE</a> template with
                         <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 {{ trans('adminlte_lang::message.and') }} <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
-                    <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ trans('adminlte_lang::message.gedstarted') }}</a></h3>
+                    <h3><a href="{{ url('/auth/azure') }}" class="btn btn-lg btn-success">{{ trans('adminlte_lang::message.gedstarted') }}</a></h3>
                 </div>
                 <div class="col-lg-2">
                     <h5>{{ trans('adminlte_lang::message.amazing') }}</h5>
