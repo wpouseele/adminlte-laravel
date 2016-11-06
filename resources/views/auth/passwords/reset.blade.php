@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('adminlte::layouts.auth')
 
 @section('htmlheader_title')
     Password reset
@@ -7,7 +7,9 @@
 @section('content')
 
     <body class="login-page">
-    <div class="login-box">
+
+    <div id="app">
+        <div class="login-box">
         <div class="login-logo">
             <a href="{{ url('/home') }}"><b>vCloudOne</b>MGMT</a>
         </div><!-- /.login-logo -->
@@ -66,8 +68,9 @@
         </div><!-- /.login-box-body -->
 
     </div><!-- /.login-box -->
+    </div>
 
-    @include('layouts.partials.scripts_auth')
+    @include('adminlte::layouts.partials.scripts_auth')
 
     <script>
         $(function () {

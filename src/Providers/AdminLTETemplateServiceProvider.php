@@ -3,6 +3,9 @@
 namespace Acacha\AdminLTETemplateLaravel\Providers;
 
 use Acacha\AdminLTETemplateLaravel\Facades\AdminLTE;
+use Acacha\User\Providers\GuestUserProvider;
+use Creativeorange\Gravatar\Facades\Gravatar;
+use Creativeorange\Gravatar\GravatarServiceProvider;
 use Illuminate\Console\AppNamespaceDetectorTrait;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,12 +26,19 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
         }
 
         if ($this->app->runningInConsole()) {
-            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTE::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTE::class]);
         }
 
         $this->app->bind('AdminLTE', function () {
             return new \Acacha\AdminLTETemplateLaravel\AdminLTE();
         });
+
+        $this->app->register(GravatarServiceProvider::class);
+        if (!class_exists('Gravatar')) {
+            class_alias(Gravatar::class, 'Gravatar');
+        }
+
+        $this->app->register(GuestUserProvider::class);
     }
 
     /**
@@ -38,12 +48,16 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     {
         $this->defineRoutes();
         $this->publishHomeController();
-        $this->changeAuthController();
+        $this->changeRegisterController();
+        $this->changeLoginController();
+        $this->changeForgotPasswordController();
+        $this->changeResetPasswordController();
         $this->publishPublicAssets();
         $this->publishViews();
         $this->publishResourceAssets();
         $this->publishTests();
         $this->publishLanguages();
+        $this->publishGravatar();
     }
 
     /**
@@ -69,11 +83,35 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     }
 
     /**
-     * Change default Laravel AuthController.
+     * Change default Laravel RegisterController.
      */
-    private function changeAuthController()
+    private function changeRegisterController()
     {
-        $this->publishes(AdminLTE::authController(), 'adminlte');
+        $this->publishes(AdminLTE::registerController(), 'adminlte');
+    }
+
+    /**
+     * Change default Laravel LoginController.
+     */
+    private function changeLoginController()
+    {
+        $this->publishes(AdminLTE::loginController(), 'adminlte');
+    }
+
+    /**
+     * Change default Laravel forgot password Controller.
+     */
+    private function changeForgotPasswordController()
+    {
+        $this->publishes(AdminLTE::forgotPasswordController(), 'adminlte');
+    }
+
+    /**
+     * Change default Laravel reset password Controller.
+     */
+    private function changeResetPasswordController()
+    {
+        $this->publishes(AdminLTE::resetPasswordController(), 'adminlte');
     }
 
     /**
@@ -117,8 +155,14 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(ADMINLTETEMPLATE_PATH.'/resources/lang/', 'adminlte_lang');
 
-        $this->publishes([
-            ADMINLTETEMPLATE_PATH.'/resources/lang/' => resource_path('lang/vendor/adminlte_lang'),
-        ]);
+        $this->publishes(AdminLTE::languages(), 'adminlte');
+    }
+
+    /**
+     * Publish config Gravatar file using group.
+     */
+    private function publishGravatar()
+    {
+        $this->publishes(AdminLTE::gravatar(), 'adminlte');
     }
 }

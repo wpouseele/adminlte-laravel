@@ -10,6 +10,31 @@ class AcachaAdminLTELaravelTest extends TestCase
 {
     use DatabaseMigrations;
 
+    /*
+     * Overwrite createApplication to add Http Kernel
+     * see: https://github.com/laravel/laravel/pull/3943
+     *      https://github.com/laravel/framework/issues/15426
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__.'/../bootstrap/app.php';
+
+        $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+
+        return $app;
+    }
+
+    /**
+     * Set up tests.
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        App::setLocale('en');
+    }
+
     /**
      * Test Landing Page.
      *
@@ -139,8 +164,11 @@ class AcachaAdminLTELaravelTest extends TestCase
     {
         $user = factory(App\User::class)->create();
 
+        $form = $this->actingAs($user)->visit('/home')->getForm('logout');
+
         $this->actingAs($user)
-            ->visit('/logout')
+            ->visit('/home')
+            ->makeRequestUsingForm($form)
             ->seePageIs('/');
     }
 

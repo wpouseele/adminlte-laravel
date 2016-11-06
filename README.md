@@ -19,7 +19,7 @@ If you are looking for the Laravel 4 version, use 0.1.5 version/tag and see [OLD
 **So easy to install!** Install globally with composer:
 
 ```bash
-composer global require "acacha/adminlte-laravel-installer=~2.0"
+composer global require "acacha/adminlte-laravel-installer=~3.0"
 ```
 
 And convert any Laravel ~~fresh~~ (no need of fresh installation now thanks to [Acacha/llum](https://github.com/acacha/llum)) installation to AdminLTE/Pratt with:
@@ -29,7 +29,6 @@ laravel new laravel-with-admin-lte
 cd laravel-with-admin-lte
 adminlte-laravel install
 ```
-
 Enjoy! If you wish you can use llum:
 
 ```bash
@@ -54,6 +53,7 @@ This packages use (no need to install):
 * [Laravel](http://laravel.com/)
 * [AdminLTE](https://github.com/almasaeed2010/AdminLTE). You can see and AdminLTE theme preview at: http://almsaeedstudio.com/preview/
 * [Pratt](http://blacktie.co/demo/pratt/). Pratt Landing Page
+* [Acacha/user](https://github.com/acacha/user): providing boosted Laravel Users.
 * [Acacha/llum](https://github.com/acacha/llum). Easy Laravel packages installation (and other tasks). Used to modify config/app.php file without using stubs (so you changes to this file would be respected)
 * Acacha llum requires GNU sed. on MAC OS install GNU sed with:
 
@@ -92,14 +92,14 @@ However acacha/llum use bash scripts and commands like sed thta maybe are no com
 Or you can use version 1.0 of installer with:
  
 ```bash
-composer global require "acacha/adminlte-laravel-installer=~1.0"
+composer global require "acacha/adminlte-laravel-installer=~3.0"
 ```
 
-## Laravel 5.2
+## Laravel 5.3
 
-Laravel 5.2 is the default Laravel version supported. See section Installation & use for more info. See below for info about how to install this package in older Laravel versions
+Laravel 5.3 is the default Laravel version supported. See section Installation & use for more info. See below for info about how to install this package in older Laravel versions
 
-### Laravel 5.2 manual installation
+### Laravel 5.3 manual installation
 
 Follow the typical Laravel package installation steps:
 
@@ -139,6 +139,15 @@ php artisan vendor:publish --tag=adminlte --force
 ``` 
  
 Use force to overwrite Laravel Scaffolding packages. That's all! Open the Laravel project in your browser or homestead machine and enjoy! 
+
+## Laravel 5.2
+
+Also you can use for previous version of Laravel (5.2) :
+
+```
+composer global require "acacha/adminlte-laravel-installer=~2.0"
+laravel new --5.2 laravel-with-admin-lte
+```
 
 ## Laravel 5.1 notes
 
@@ -239,16 +248,20 @@ AdminLTE is a Free Premium Admin control Panel Theme That Is Based On Bootstrap 
 
 https://github.com/almasaeed2010/AdminLTE
 
+## Avatar/Gravatar
+
+Adminlte-laravel supports global recognized avatar (http://gravatar.com) using package creativeorange/gravatar (https://github.com/creativeorange/gravatar).
+
 # Roadmap
 
 - Implement Facebook, Google and maybe twitter and github Login with Socialite
 - Add email html templates
+- Add breadcrumps with: https://github.com/davejamesmiller/laravel-breadcrumbs
 
 ## Documentation TODO
 
 - Gulp file provided to compile Boostrap and AdminLTE less files
 - Partial views (html header, content header, footer, etc.) to easily reuse code
-- Add breadcrumps with: https://github.com/davejamesmiller/laravel-breadcrumbs
 
 ## Packagist
 
