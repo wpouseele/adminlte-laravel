@@ -134,8 +134,8 @@ class AdminLTE
     public function resourceAssets()
     {
         return [
-            // custom to publish imagesx
-            ADMINLTETEMPLATE_PATH.'/resources/assets/img'  => base_path('assets/img'),
+            // custom --- publish images
+            ADMINLTETEMPLATE_PATH.'/resources/assets/img'  => resource_path('assets/img'),
             ADMINLTETEMPLATE_PATH.'/resources/assets/less' => resource_path('assets/less'),
             ADMINLTETEMPLATE_PATH.'/resources/assets/sass' => resource_path('assets/sass'),
             ADMINLTETEMPLATE_PATH.'/resources/assets/js'   => resource_path('assets/js'),
