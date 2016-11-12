@@ -16,9 +16,8 @@ require('laravel-elixir-vue-2');
 elixir(function(mix) {
     //app.scss includes app css, Boostrap and Ionicons
     mix.sass('app.scss')
-        // custom landing page css and background image
+        // custom landing page css
         .less('vcloudone-mgmt-landing.less')
-        .copy('resources/assets/img/clouds.jpg','public/img/cloud.jpg')
         // remaining assets
         .less('./node_modules/admin-lte/build/less/AdminLTE.less', './public/css/adminlte-less.css')
         .less('adminlte-app.less')
@@ -41,5 +40,7 @@ elixir(function(mix) {
         .copy('node_modules/admin-lte/plugins','public/plugins')
         .copy('node_modules/icheck/skins/square/blue.png','public/css')
         .copy('node_modules/icheck/skins/square/blue@2x.png','public/css')
+        // copy landing page background
+        .copy('resources/assets/img/clouds.jpg','public/img/cloud.jpg')
         .webpack('app.js');
 });
