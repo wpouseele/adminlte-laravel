@@ -82,7 +82,11 @@
         <div class="content">
             <h4 class="motto">One app to rule them all.</h4>
             <div class="login">
-                <a href="/auth/azure" class="btn btn-custom btn-lg btn-fill">Get Started</a>
+                @if (Auth::guest())
+                    <a href="/auth/azure" class="btn btn-custom btn-lg btn-fill">Get Started</a>
+                @else
+                    <a href="/home" class="btn btn-custom btn-lg btn-fill">Get Started</a>
+                @endif
             </div>
         </div>
     </div>
