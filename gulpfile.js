@@ -41,6 +41,6 @@ elixir(function(mix) {
         .copy('node_modules/icheck/skins/square/blue.png','public/css')
         .copy('node_modules/icheck/skins/square/blue@2x.png','public/css')
         // copy landing page background
-        .copy('resources/assets/img/clouds.jpg','public/img/cloud.jpg')
+        .copy('resources/assets/img/clouds.jpg','public/img/clouds.jpg')
         .webpack('app.js');
 });
