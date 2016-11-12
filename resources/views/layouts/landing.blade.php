@@ -9,8 +9,8 @@
 
     <title>vCloudOneMGMT</title>
 
-	<link href="{{ asset('/css/landing-bootstrap.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/landing-vcloudone-mgmt.css') }}" rel="stylesheet" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/<bootstrap class="min css">z</bootstrap>" rel="stylesheet" />
+    <link href="{{ asset('/css/vcloudone-mgmt-landing.css') }}" rel="stylesheet" />
 
     <!--     Fonts     -->
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
