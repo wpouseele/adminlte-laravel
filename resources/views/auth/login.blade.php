@@ -27,8 +27,11 @@
         <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
         <div class="social-auth-links text-center">
             <a href="/auth/azure" class="btn btn-block btn-social btn-microsoft btn-flat"><i class="fa fa-windows"></i> Sign in using Azure AD</a>
+            <!---
             <p>- OR -</p>
+            -->
         </div>
+        <!---
         <form action="{{ url('/login') }}" method="post">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group has-feedback">
@@ -46,12 +49,13 @@
                             <input type="checkbox" name="remember"> {{ trans('adminlte_lang::message.remember') }}
                         </label>
                     </div>
-                </div><!-- /.col -->
+                </div>
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.buttonsign') }}</button>
-                </div><!-- /.col -->
+                </div>
             </div>
         </form>
+        -->
 
         {{-- @include('adminlte::auth.partials.social_login') --}}
 
