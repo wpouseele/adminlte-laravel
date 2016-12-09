@@ -3,7 +3,7 @@
 namespace Acacha\AdminLTETemplateLaravel\Providers;
 
 use Acacha\AdminLTETemplateLaravel\Facades\AdminLTE;
-use Acacha\User\Providers\GuestUserProvider;
+use Acacha\User\Providers\GuestUserServiceProvider;
 use Creativeorange\Gravatar\Facades\Gravatar;
 use Creativeorange\Gravatar\GravatarServiceProvider;
 use Illuminate\Console\AppNamespaceDetectorTrait;
@@ -38,7 +38,7 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
             class_alias(Gravatar::class, 'Gravatar');
         }
 
-        $this->app->register(GuestUserProvider::class);
+        $this->app->register(GuestUserServiceProvider::class);
     }
 
     /**
