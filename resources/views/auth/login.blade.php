@@ -55,7 +55,7 @@
                 </div>
             </div>
         </form>
-        -->
+        
 
         {{-- @include('adminlte::auth.partials.social_login') --}}
 
