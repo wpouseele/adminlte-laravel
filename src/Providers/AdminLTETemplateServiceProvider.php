@@ -3,7 +3,7 @@
 namespace Acacha\AdminLTETemplateLaravel\Providers;
 
 use Acacha\AdminLTETemplateLaravel\Facades\AdminLTE;
-use Acacha\User\Providers\GuestUserProvider;
+use Acacha\User\Providers\GuestUserServiceProvider;
 use Creativeorange\Gravatar\Facades\Gravatar;
 use Creativeorange\Gravatar\GravatarServiceProvider;
 use Illuminate\Console\AppNamespaceDetectorTrait;
@@ -27,18 +27,45 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTE::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTEAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTESidebar::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTESidebarAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeAdminUserSeeder::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEAdmin::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEAdminAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeView::class]);
         }
 
         $this->app->bind('AdminLTE', function () {
             return new \Acacha\AdminLTETemplateLaravel\AdminLTE();
         });
 
+        if (config('adminlte.gravatar', true)) {
+            $this->registerGravatarServiceProvider();
+        }
+
+        if (config('adminlte.guestuser', true)) {
+            $this->registerGuestUserProvider();
+        }
+    }
+
+    /**
+     * Register Guest User Provider.
+     */
+    protected function registerGuestUserProvider()
+    {
+        $this->app->register(GuestUserServiceProvider::class);
+    }
+
+    /**
+     * Register Gravatar Service Provider.
+     */
+    protected function registerGravatarServiceProvider()
+    {
         $this->app->register(GravatarServiceProvider::class);
         if (!class_exists('Gravatar')) {
             class_alias(Gravatar::class, 'Gravatar');
         }
-
-        $this->app->register(GuestUserProvider::class);
     }
 
     /**
@@ -58,6 +85,7 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
         $this->publishTests();
         $this->publishLanguages();
         $this->publishGravatar();
+        $this->publishConfig();
     }
 
     /**
@@ -155,7 +183,7 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(ADMINLTETEMPLATE_PATH.'/resources/lang/', 'adminlte_lang');
 
-        $this->publishes(AdminLTE::languages(), 'adminlte');
+        $this->publishes(AdminLTE::languages(), 'adminlte_lang');
     }
 
     /**
@@ -164,5 +192,13 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     private function publishGravatar()
     {
         $this->publishes(AdminLTE::gravatar(), 'adminlte');
+    }
+
+    /**
+     * Publish adminlte package config.
+     */
+    private function publishConfig()
+    {
+        $this->publishes(AdminLTE::config(), 'adminlte');
     }
 }
