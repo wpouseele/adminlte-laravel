@@ -59,6 +59,11 @@
                         <a href="{{ URL::route('office365.index') }}"><i class="fa fa-link"></i> <span>Office 365 projects</span></a>
                     </li>
                 @endcan
+                @can('view-azure-projects')
+                    <li {{ (Request::is('*azure') ? 'class="active"' : '') }}>
+                        <a href="{{ URL::route('azure.index') }}"><i class="fa fa-link"></i> <span>Azure projects</span></a>
+                    </li>
+                @endcan
                 @can('view-offsitebackup-projects')
                     <li {{ (Request::is('*offsitebackup') ? 'class="active"' : '') }}>
                         <a href="{{ URL::route('offsitebackup.index') }}"><i class="fa fa-link"></i> <span>Offsite backup projects</span></a>
