@@ -27,18 +27,51 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTE::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTEAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTESidebar::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\PublishAdminLTESidebarAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeAdminUserSeeder::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEAdmin::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEAdminAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeView::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEMenu::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEMenuAlt::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeRoute::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeMenu::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeVC::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeMVC::class]);
         }
 
         $this->app->bind('AdminLTE', function () {
             return new \Acacha\AdminLTETemplateLaravel\AdminLTE();
         });
 
+        if (config('adminlte.gravatar', true)) {
+            $this->registerGravatarServiceProvider();
+        }
+
+        if (config('adminlte.guestuser', true)) {
+            $this->registerGuestUserProvider();
+        }
+    }
+
+    /**
+     * Register Guest User Provider.
+     */
+    protected function registerGuestUserProvider()
+    {
+        $this->app->register(GuestUserServiceProvider::class);
+    }
+
+    /**
+     * Register Gravatar Service Provider.
+     */
+    protected function registerGravatarServiceProvider()
+    {
         $this->app->register(GravatarServiceProvider::class);
         if (!class_exists('Gravatar')) {
             class_alias(Gravatar::class, 'Gravatar');
         }
-
-        $this->app->register(GuestUserServiceProvider::class);
     }
 
     /**
@@ -58,6 +91,10 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
         $this->publishTests();
         $this->publishLanguages();
         $this->publishGravatar();
+        $this->publishConfig();
+        $this->publishWebRoutes();
+        $this->publishApiRoutes();
+        $this->enableSpatieMenu();
     }
 
     /**
@@ -155,7 +192,7 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     {
         $this->loadTranslationsFrom(ADMINLTETEMPLATE_PATH.'/resources/lang/', 'adminlte_lang');
 
-        $this->publishes(AdminLTE::languages(), 'adminlte');
+        $this->publishes(AdminLTE::languages(), 'adminlte_lang');
     }
 
     /**
@@ -164,5 +201,39 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
     private function publishGravatar()
     {
         $this->publishes(AdminLTE::gravatar(), 'adminlte');
+    }
+
+    /**
+     * Publish adminlte package config.
+     */
+    private function publishConfig()
+    {
+        $this->publishes(AdminLTE::config(), 'adminlte');
+    }
+
+    /**
+     * Publish routes/web.php file.
+     */
+    private function publishWebRoutes()
+    {
+        $this->publishes(AdminLTE::webroutes(), 'adminlte');
+    }
+
+    /**
+     * Publish routes/api.php file.
+     */
+    private function publishApiRoutes()
+    {
+        $this->publishes(AdminLTE::apiroutes(), 'adminlte');
+    }
+
+    /**
+     * Enable (if active) spatie menu.
+     */
+    protected function enableSpatieMenu()
+    {
+        if ($this->app->getProvider('Spatie\Menu\Laravel\MenuServiceProvider')) {
+            require config_path('menu.php');
+        }
     }
 }

@@ -4,15 +4,13 @@ namespace Acacha\AdminLTETemplateLaravel\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use League\Flysystem\Adapter\Local as LocalAdapter;
-use League\Flysystem\Filesystem as Flysystem;
-use League\Flysystem\MountManager;
 
 /**
  * Class PublishAdminLTE.
  */
 class PublishAdminLTE extends Command
 {
+    use Installable;
     /**
      * The filesystem instance.
      *
@@ -44,7 +42,6 @@ class PublishAdminLTE extends Command
      *
      * @param \Illuminate\Filesystem\Filesystem $files
      *
-     * @return void
      */
     public function __construct(Filesystem $files)
     {
@@ -69,6 +66,9 @@ class PublishAdminLTE extends Command
         $this->publishTests();
         $this->publishLanguages();
         $this->publishGravatar();
+        $this->publishConfig();
+        $this->publishWebRoutes();
+        $this->publishApiRoutes();
     }
 
     /**
@@ -160,106 +160,27 @@ class PublishAdminLTE extends Command
     }
 
     /**
-     * Install files from array.
-     *
-     * @param $files
+     * Publish adminlte package config.
      */
-    private function install($files)
+    private function publishConfig()
     {
-        foreach ($files as $fileSrc => $fileDst) {
-            if (file_exists($fileDst) && !$this->force && !$this->confirmOverwrite(basename($fileDst))) {
-                return;
-            }
-            if ($this->files->isFile($fileSrc)) {
-                $this->publishFile($fileSrc, $fileDst);
-            } elseif ($this->files->isDirectory($fileSrc)) {
-                $this->publishDirectory($fileSrc, $fileDst);
-            } else {
-                $this->error("Can't locate path: <{$fileSrc}>");
-            }
-        }
+        $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::config());
     }
 
     /**
-     * @param $fileName
-     * @param string $prompt
-     *
-     * @return bool
+     * Publish routes/web.php file.
      */
-    protected function confirmOverwrite($fileName, $prompt = '')
+    private function publishWebRoutes()
     {
-        $prompt = (empty($prompt))
-            ? $fileName.' already exists. Do you want to overwrite it? [y|N]'
-            : $prompt;
-
-        return $this->confirm($prompt, false);
+        $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::webroutes());
     }
 
     /**
-     * Create the directory to house the published files if needed.
-     *
-     * @param string $directory
-     *
-     * @return void
+     * Publish routes/api.php file.
      */
-    protected function createParentDirectory($directory)
+    private function publishApiRoutes()
     {
-        if (!$this->files->isDirectory($directory)) {
-            $this->files->makeDirectory($directory, 0755, true);
-        }
-    }
-
-    /**
-     * Publish the file to the given path.
-     *
-     * @param string $from
-     * @param string $to
-     *
-     * @return void
-     */
-    protected function publishFile($from, $to)
-    {
-        $this->createParentDirectory(dirname($to));
-        $this->files->copy($from, $to);
-        $this->status($from, $to, 'File');
-    }
-
-    /**
-     * Publish the directory to the given directory.
-     *
-     * @param string $from
-     * @param string $to
-     *
-     * @return void
-     */
-    protected function publishDirectory($from, $to)
-    {
-        $manager = new MountManager([
-            'from' => new Flysystem(new LocalAdapter($from)),
-            'to'   => new Flysystem(new LocalAdapter($to)),
-        ]);
-        foreach ($manager->listContents('from://', true) as $file) {
-            if ($file['type'] === 'file' && (!$manager->has('to://'.$file['path']) || $this->force)) {
-                $manager->put('to://'.$file['path'], $manager->read('from://'.$file['path']));
-            }
-        }
-        $this->status($from, $to, 'Directory');
-    }
-
-    /**
-     * Write a status message to the console.
-     *
-     * @param string $from
-     * @param string $to
-     * @param string $type
-     *
-     * @return void
-     */
-    protected function status($from, $to, $type)
-    {
-        $from = str_replace(base_path(), '', realpath($from));
-        $to = str_replace(base_path(), '', realpath($to));
-        $this->line('<info>Copied '.$type.'</info> <comment>['.$from.']</comment> <info>To</info> <comment>['.$to.']</comment>');
+        $this->install(\Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::apiroutes());
     }
 
     /**

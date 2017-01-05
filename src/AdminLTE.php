@@ -27,7 +27,8 @@ class AdminLTE
     public function registerController()
     {
         return [
-            ADMINLTETEMPLATE_PATH.'/src/stubs/RegisterController.stub' => app_path('Http/Controllers/Auth/RegisterController.php'),
+            ADMINLTETEMPLATE_PATH.'/src/stubs/RegisterController.stub' =>
+                app_path('Http/Controllers/Auth/RegisterController.php'),
         ];
     }
 
@@ -39,7 +40,8 @@ class AdminLTE
     public function loginController()
     {
         return [
-            ADMINLTETEMPLATE_PATH.'/src/stubs/LoginController.stub' => app_path('Http/Controllers/Auth/LoginController.php'),
+            ADMINLTETEMPLATE_PATH.'/src/stubs/LoginController.stub' =>
+                app_path('Http/Controllers/Auth/LoginController.php'),
         ];
     }
 
@@ -51,7 +53,8 @@ class AdminLTE
     public function forgotPasswordController()
     {
         return [
-            ADMINLTETEMPLATE_PATH.'/src/stubs/ForgotPasswordController.stub' => app_path('Http/Controllers/Auth/ForgotPasswordController.php'),
+            ADMINLTETEMPLATE_PATH.'/src/stubs/ForgotPasswordController.stub' =>
+                app_path('Http/Controllers/Auth/ForgotPasswordController.php'),
         ];
     }
 
@@ -63,7 +66,8 @@ class AdminLTE
     public function resetPasswordController()
     {
         return [
-            ADMINLTETEMPLATE_PATH.'/src/stubs/ResetPasswordController.stub' => app_path('Http/Controllers/Auth/ResetPasswordController.php'),
+            ADMINLTETEMPLATE_PATH.'/src/stubs/ResetPasswordController.stub' =>
+                app_path('Http/Controllers/Auth/ResetPasswordController.php'),
         ];
     }
 
@@ -91,8 +95,25 @@ class AdminLTE
     public function viewsToOverwrite()
     {
         return [
-            ADMINLTETEMPLATE_PATH.'/resources/views/errors'            => resource_path('views/errors'),
-            ADMINLTETEMPLATE_PATH.'/resources/views/welcome.blade.php' => resource_path('views/welcome.blade.php'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/errors'            =>
+                resource_path('views/errors'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/welcome.blade.php' =>
+                resource_path('views/welcome.blade.php'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/layouts/partials/sidebar.blade.php' =>
+                resource_path('views/vendor/adminlte/layouts/partials/sidebar.blade.php'),
+        ];
+    }
+
+    /**
+     * Path of sidebar.
+     *
+     * @return array
+     */
+    public function sidebarView()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/resources/views/layouts/partials/sidebar.blade.php' =>
+                resource_path('views/vendor/adminlte/layouts/partials/sidebar.blade.php'),
         ];
     }
 
@@ -104,12 +125,18 @@ class AdminLTE
     public function views()
     {
         return [
-            ADMINLTETEMPLATE_PATH.'/resources/views/auth'              => resource_path('views/vendor/adminlte/auth'),
-            ADMINLTETEMPLATE_PATH.'/resources/views/auth/emails'       => resource_path('views/vendor/adminlte/auth/emails'),
-            ADMINLTETEMPLATE_PATH.'/resources/views/errors'            => resource_path('views/vendor/adminlte/errors'),
-            ADMINLTETEMPLATE_PATH.'/resources/views/layouts'           => resource_path('views/vendor/adminlte/layouts'),
-            ADMINLTETEMPLATE_PATH.'/resources/views/home.blade.php'    => resource_path('views/vendor/adminlte/home.blade.php'),
-            ADMINLTETEMPLATE_PATH.'/resources/views/welcome.blade.php' => resource_path('views/welcome.blade.php'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/auth'              =>
+                resource_path('views/vendor/adminlte/auth'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/auth/emails'       =>
+                resource_path('views/vendor/adminlte/auth/emails'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/errors'            =>
+                resource_path('views/vendor/adminlte/errors'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/layouts'           =>
+                resource_path('views/vendor/adminlte/layouts'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/home.blade.php'    =>
+                resource_path('views/vendor/adminlte/home.blade.php'),
+            ADMINLTETEMPLATE_PATH.'/resources/views/welcome.blade.php' =>
+                resource_path('views/welcome.blade.php'),
         ];
     }
 
@@ -165,6 +192,70 @@ class AdminLTE
     {
         return [
             base_path().'/vendor/creativeorange/gravatar/config/gravatar.php' => config_path('gravatar.php'),
+        ];
+    }
+
+    /**
+     * Config path.
+     *
+     * @return array
+     */
+    public function config()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/config/adminlte.php' => config_path('adminlte.php'),
+        ];
+    }
+
+    /**
+     * Spatie menu path.
+     *
+     * @return array
+     */
+    public function spatieMenu()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/resources/views/layouts/partials/sidebar_with_spatie_menu.blade.php' =>
+                resource_path('views/vendor/adminlte/layouts/partials/sidebar.blade.php')
+        ];
+    }
+
+    /**
+     * Menu path.
+     *
+     * @return array
+     */
+    public function menu()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/config/menu.php' =>
+                config_path('menu.php')
+        ];
+    }
+
+    /**
+     * Web routes path.
+     *
+     * @return array
+     */
+    public function webroutes()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/routes/web.php' =>
+                base_path('routes/web.php')
+        ];
+    }
+
+    /**
+     * Api routes path.
+     *
+     * @return array
+     */
+    public function apiroutes()
+    {
+        return [
+            ADMINLTETEMPLATE_PATH.'/routes/api.php' =>
+                base_path('routes/api.php')
         ];
     }
 }
