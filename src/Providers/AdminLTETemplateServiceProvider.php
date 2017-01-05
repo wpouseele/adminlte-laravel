@@ -36,8 +36,7 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeView::class]);
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEMenu::class]);
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\AdminLTEMenuAlt::class]);
-            // DO NOT OVERWRITE OUR ROUTES FILE
-            //$this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeRoute::class]);
+            $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeRoute::class]);
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeMenu::class]);
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeVC::class]);
             $this->commands([\Acacha\AdminLTETemplateLaravel\Console\MakeMVC::class]);
@@ -93,8 +92,9 @@ class AdminLTETemplateServiceProvider extends ServiceProvider
         $this->publishLanguages();
         $this->publishGravatar();
         $this->publishConfig();
-        $this->publishWebRoutes();
-        $this->publishApiRoutes();
+        // DO NOT OVERWRITE OUR ROUTES FILE
+        // $this->publishWebRoutes();
+        // $this->publishApiRoutes();
         $this->enableSpatieMenu();
     }
 
