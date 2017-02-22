@@ -94,6 +94,17 @@
                         <a href="{{ URL::route('product.index') }}"><i class="fa fa-link"></i> <span>Products</span></a>
                     </li>
                 @endcan
+                @can('view-vcontainer-infrastructure')
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-link'></i> <span>vContainer Infrastructure</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ URL::route('vcontainer.index') }}">vContainer</a></li>
+                            <li><a href="{{ URL::route('vdc.index') }}">vDc</a></li>
+                            <li><a href="{{ URL::route('storagepool.index') }}">Storagepool</a></li>
+                            <li><a href="{{ URL::route('vapp.index') }}">vApp</a></li>
+                        </ul>
+                    </li>
+                @endcan
                 <li class="header">Create</li>
                 @can('edit-project')
                     <li {{ (Request::is('project.create') ? 'class="active"' : '') }}>
