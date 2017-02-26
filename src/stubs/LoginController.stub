@@ -111,6 +111,7 @@ class LoginController extends Controller
         return $user;
     }
 
+    /**
      * Returns field name to use at login.
      *
      * @return string
