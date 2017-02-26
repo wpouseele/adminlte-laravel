@@ -17,7 +17,10 @@
 						This app is used to manage all aspects of a vCloudOne project.<br><br>
 						Use the left navigation to view/create/update a project.
 					</div>
+					<!-- /.box-body -->
 				</div>
+				<!-- /.box -->
+
 			</div>
 		</div>
 	</div>

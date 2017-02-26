@@ -2,7 +2,6 @@
 
 namespace Acacha\AdminLTETemplateLaravel\Console;
 
-use Acacha\AdminLTETemplateLaravel\Compiler\StubFileCompiler;
 use Acacha\AdminLTETemplateLaravel\Console\Routes\Controller;
 use Acacha\AdminLTETemplateLaravel\Console\Routes\ControllerResourceRoute;
 use Acacha\AdminLTETemplateLaravel\Console\Routes\ControllerRoute;
@@ -10,7 +9,8 @@ use Acacha\AdminLTETemplateLaravel\Console\Routes\GeneratesCode;
 use Acacha\AdminLTETemplateLaravel\Console\Routes\RegularRoute;
 use Acacha\AdminLTETemplateLaravel\Exceptions\RouteTypeNotValid;
 use Acacha\AdminLTETemplateLaravel\Exceptions\SpatieMenuDoesNotExists;
-use Acacha\AdminLTETemplateLaravel\Filesystem\Filesystem;
+use Acacha\Filesystem\Compiler\StubFileCompiler;
+use Acacha\Filesystem\Filesystem;
 use Illuminate\Console\Command;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Artisan;
@@ -169,8 +169,8 @@ class MakeRoute extends Command
         $link = $this->removeTrailingSlashIfExists($link);
         $link = $this->removeDuplicatedTrailingSlashes($link);
         foreach (Route::getRoutes() as $value) {
-            if (in_array(strtoupper($this->option('method')), array_merge($value->getMethods(), ['ANY'])) &&
-                $value->getPath() === $link) {
+            if (in_array(strtoupper($this->option('method')), array_merge($value->methods(), ['ANY'])) &&
+                $value->uri() === $link) {
                 return true;
             }
         }
