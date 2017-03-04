@@ -96,8 +96,9 @@
       </div>
     </div>
  </div>
-
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ mix('/js/app-landing.js') }}"></script>
 </body>
-    <script src="{{ asset('/js/app.js') }}"></script>
-    <script src="{{ asset('/js/smoothscroll.js') }}"></script>
 </html>
