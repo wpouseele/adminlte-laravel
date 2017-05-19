@@ -92,7 +92,7 @@
     </div>
     <div class="footer">
       <div class="container">
-             Made with <i class="fa fa-heart heart"></i> by <a href="http://github.com/wpouseele">Wim Pouseele</a>. Powered by <a href="http://www.conxion.be">ConXioN</a>.
+             Proudly developed by <a href="http://github.com/wpouseele">Wim Pouseele</a>. Powered by <a href="http://www.conxion.be">ConXioN</a>.
       </div>
     </div>
  </div>
